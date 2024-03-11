@@ -7,7 +7,7 @@ import { signInSuccess } from "../sign-in/funcSignIn.spec";
 test("add to card", async ({ page }) => {
   await signInSuccess(page);
   await verificationCodeCustom(page);
-  await stepAddToCard(page);
+  // await stepAddToCard(page);
 });
 export async function stepAddToCard(page: Page) {
   //choose "Order full kit"

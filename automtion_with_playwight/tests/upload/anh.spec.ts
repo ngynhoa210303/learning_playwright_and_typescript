@@ -34,19 +34,21 @@
 // //   await page.mouse.click(50, 50);
 // //   await page.pause();
 // // });
+
 import { test, expect } from "@playwright/test";
+import * as path from "path";
 
 test("Image Upload Test", async ({ page }) => {
   // Navigate to the page
-  await page.goto("https://ant.design/components/upload");
+  await page.goto("https://upanh.tv/");
 
   // Click on the upload button or link
-  await page.click("text='Click to Upload'");
+  await page.click("text='Start uploading'");
 
-  // Select the file to upload
-  const filePath = "E:/automtion_with_playwight/tests/upload/7.jpg"; // Path to the image file
+  // Construct the relative path to the image file
+  const relativeFilePath = path.join(process.cwd(), "tests/upload/7.jpg");
 
   // Use page.setInputFiles() to upload the file
-  await page.setInputFiles('input[type="file"]', filePath);
+  await page.setInputFiles('input[type="file"]', relativeFilePath);
   await page.pause();
 });
