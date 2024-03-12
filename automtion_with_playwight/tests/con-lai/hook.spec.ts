@@ -38,11 +38,10 @@ test.only("Hook and Group Ver2", async ({ page }) => {
 test.describe("Group 1", () => {
   test.beforeEach(async ({ page }) => {
     await signInSuccess(page);
-    await verificationCodeCustom(page);
   });
   test("Hook and Group", async ({ page }) => {
     // await signInSuccess(page);
-    // await page.pause();
+    await verificationCodeCustom(page);
   });
   test.afterAll("Close", async ({ page }) => {
     //   await verificationCodeCustom(page);

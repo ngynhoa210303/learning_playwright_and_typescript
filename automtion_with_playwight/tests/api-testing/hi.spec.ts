@@ -14,37 +14,44 @@ import { expect, test } from "@playwright/test";
 //CHẠY  npx playwright test ".\\tests\\api-testing\\hi.spec.ts"  --ui
 //get
 test("API with playwright", async ({ request }) => {
-  const respone = await request.get("https://reqres.in/api/users");
+  const respone = await request.get(
+    "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/district",
+    {
+      headers: {
+        token: "62124d79-4ffa-11ee-b1d4-92b443b7a897",
+      },
+    }
+  );
   expect(respone.status()).toBe(200);
 });
 
 //Post
-test("Post with playwright", async ({ request }) => {
-  const response = await request.post("https://reqres.in/api/users/2", {
-    data: {
-      name: "Raghav",
-      job: "teacher",
-    },
-  });
-  expect(response.status()).toBe(201);
-});
+// test("Post with playwright", async ({ request }) => {
+//   const response = await request.post("https://reqres.in/api/users/2", {
+//     data: {
+//       name: "Raghav",
+//       job: "teacher",
+//     },
+//   });
+//   expect(response.status()).toBe(201);
+// });
 
-//put
-test("Put with playwright", async ({ request }) => {
-  const response = await request.put("https://reqres.in/api/users/2", {
-    //phải có index
-    data: {
-      name: "Raghav",
-      job: "teacher",
-    },
-  });
-  expect(response.status()).toBe(200);
-  const text = await response.text();
-  expect(text).toContain("Raghav");
-});
+// //put
+// test("Put with playwright", async ({ request }) => {
+//   const response = await request.put("https://reqres.in/api/users/2", {
+//     //phải có index
+//     data: {
+//       name: "Raghav",
+//       job: "teacher",
+//     },
+//   });
+//   expect(response.status()).toBe(200);
+//   const text = await response.text();
+//   expect(text).toContain("Raghav");
+// });
 
-//delete
-test("Demo API DELETE Request", async ({ request }) => {
-  const response = await request.delete("https://reqres.in/api/users/2");
-  expect(response.status()).toBe(204);
-});
+// //delete
+// test("Demo API DELETE Request", async ({ request }) => {
+//   const response = await request.delete("https://reqres.in/api/users/2");
+//   expect(response.status()).toBe(204);
+// });
