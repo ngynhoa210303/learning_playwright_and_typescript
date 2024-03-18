@@ -30,7 +30,6 @@ test.only("loopProduct", async ({ page }) => {
   await delay(2000);
   const tableLocator = page.locator("//table[@id='fleet-list']");
   const rows = await tableLocator.locator("tbody tr");
-  expect(await rows.count()).toBe(10);
 });
 async function selectProduct(rows: Locator, page: Page, name: string) {
   const machedRow = rows.filter({

@@ -10,11 +10,11 @@ test("Lặp lấy product", async ({ page }) => {
   await page.getByRole("button", { name: "SHOPPING" }).click();
   await delay(2000);
   const tableLocator = page.locator("//table[@id='fleet-list']");
-  const rows = await tableLocator.locator("tbody tr");
+  const rows = tableLocator.locator("tbody tr");
   await loopProduct(rows);
 });
 async function loopProduct(rows: Locator) {
-  for (let i = 0; i < (await rows.count()); i++) {
+  for (let i = 0; i <= (await rows.count()); i++) {
     const row = rows.nth(i);
     const tds = row.locator("td");
 
