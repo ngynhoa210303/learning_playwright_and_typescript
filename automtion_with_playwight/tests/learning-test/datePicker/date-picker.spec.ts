@@ -11,11 +11,11 @@ test("Date Picker", async ({ page }) => {
   // await page.fill('#datepicker','03/15/2024')
 
   //date picker
-  const year = "2022";
+  const year = "2020";
   const month = "March";
   const date = "25";
 
-  const getDate = new DatePicker(year, month, date, page);
+  const getDate = new DatePicker(year, month, page);
   await getDate.action();
   //Danh sách ngày =
   //nhiều ptu ở dạng mảng
@@ -23,7 +23,7 @@ test("Date Picker", async ({ page }) => {
 
   //date selection using loop
   for (const dt of dates) {
-    if ((await dt.textContent()) == date) {
+    if ((await dt.textContent()) == "25") {
       await dt.click();
       break;
     }

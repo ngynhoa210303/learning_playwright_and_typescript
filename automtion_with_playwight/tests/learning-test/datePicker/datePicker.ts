@@ -3,15 +3,13 @@ import { Page } from "playwright";
 export class DatePicker {
   year: any;
   month: any;
-  day: any;
   page: Page;
   year_locator: any;
   month_locator: any;
   day_locator: any;
-  constructor(year: any, month: any, day: any, page: Page) {
+  constructor(year: any, month: any, page: Page) {
     this.year = year;
     this.month = month;
-    this.day = day;
     this.page = page;
     this.year_locator = this.page.locator(".ui-datepicker-year");
     this.month_locator = this.page.locator(".ui-datepicker-month");
@@ -22,6 +20,8 @@ export class DatePicker {
     while (true) {
       const currentYear = await this.year_locator.textContent();
       const currentMonth = await this.month_locator.textContent();
+      console.log(currentYear);
+
       if (currentYear == this.year && currentMonth == this.month) {
         break;
       }
