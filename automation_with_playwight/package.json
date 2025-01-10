@@ -12,6 +12,7 @@
     "@types/node": "^20.11.24"
   },
   "dependencies": {
+    "automtion_with_playwight": "file:",
     "axios": "^1.6.8",
     "playwright": "^1.42.1",
     "xlsx": "^0.18.5"
